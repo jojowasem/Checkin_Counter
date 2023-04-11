@@ -3,6 +3,8 @@ import pandas as pd
 from pandas.io.json import json_normalize
 
 df = pd.DataFrame()
+
+# insert member cpf here before running
 cpf = 12345678900
 
 for i in range(0, 1029):
@@ -13,12 +15,10 @@ for i in range(0, 1029):
             try:
                 checkin = data['checkin.status']
             except:
-                print(i)
                 continue
             if checkin.iloc[0] == "a":
                 df = df.append(checkin, ignore_index=True)            
     except:
-        print(i)
         continue
 
 print(df)
